@@ -1,4 +1,5 @@
-# `termux-alpine`
+# `termux-alpine-auto`
+> Modified by peasoft
 
 [![Release](https://img.shields.io/github/v/release/illvart/termux-alpine?color=orange)][1]
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPLv3-blue.svg)][2]
@@ -17,45 +18,38 @@
 <details>
 <summary>Details</summary>
 
-- [Initializing](#initializing)
-  - [Installation](#installation)
-    - [Launch Alpine Linux](#launch-alpine-linux)
+- [Installation](#installation)
+  - [Launch Alpine Linux](#launch-alpine-linux)
   - [Reinstall](#reinstall)
   - [Uninstall](#uninstall)
-- [Upgrade](#upgrade)
 - [Options](#options)
-- [Supports](#sparkling_heart-supports)
 - [Credits](#credits)
 - [Contributing](#contributing)
 - [License](#license)
 
 </details>
 
-## Initializing
+## Installation
 
 Open [Termux] app, copy and paste the following command in Termux.
 
-Note: Required to install `git` and `ncurses-utils`, skip if already installed!
-
 ```sh
-pkg install -y git
-pkg install -y ncurses-utils
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/peasoft/termux-alpine-auto/main/setup-termux-alpine)"
 ```
 
+For users in China, please run:
+
 ```sh
-cd $HOME && \
-    git clone -b main https://github.com/illvart/termux-alpine.git && \
-    cd termux-alpine && \
-    chmod +x setup-termux-alpine
+bash -c "$(curl -fsSL https://fastly.jsdelivr.net/gh/peasoft/termux-alpine-auto@main/setup-termux-alpine)"
 ```
 
-Or download from [GitHub Releases page][1] and extract.
-
-### Installation
+### Installation with options
 
 Installation [options](#options).
 
 ```sh
+curl -fsSL https://raw.githubusercontent.com/peasoft/termux-alpine-auto/main/setup-termux-alpine > setup-termux-alpine
+chmod +x setup-termux-alpine
 ./setup-termux-alpine --setup-user
 ```
 
@@ -90,8 +84,7 @@ Or pass the command with [options](#options) example:
 Please note! Before uninstalling, recommended to backup the current installation.
 
 ```sh
-cd ${HOME}/termux-alpine && \
-    ./setup-termux-alpine --uninstall
+./setup-termux-alpine --uninstall
 ```
 
 Or manually (isn't safe):
@@ -99,17 +92,6 @@ Or manually (isn't safe):
 ```sh
 rm -rf ${PREFIX}/bin/termux-alpine \
     ${HOME}/.alpine
-```
-
-## Upgrade
-
-Upgrade the installation script.
-
-```sh
-rm -rf ${HOME}/termux-alpine && \
-    cd $HOME && \
-    git clone -b main https://github.com/illvart/termux-alpine.git && \
-    cd termux-alpine
 ```
 
 ## Options
@@ -129,13 +111,6 @@ Options:
 
 If you're using `--setup-user`, to login a non-root user after installation use `login your_username` and enter the password.
 
-## :sparkling_heart: Supports
-
-This project is open source and free to use under the [license](#license). However, if you are using this project and happy with it or just want to encourage me to continue creating stuff, there are few ways to supporting:
-
-- [PayPal]
-- [BuyMeACoffee]
-- [Saweria]
 
 ## Credits
 
@@ -154,7 +129,4 @@ This project is licensed under the **GPL-3.0 License**. See the [LICENSE][3] fil
 [2]: https://github.com/illvart/termux-alpine/blob/main/docs/CONTRIBUTING.md
 [3]: https://github.com/illvart/termux-alpine/blob/main/LICENSE
 [Termux]: https://termux.com
-[PayPal]: https://www.paypal.me/illvart
-[BuyMeACoffee]: https://www.buymeacoffee.com/illvart
-[Saweria]: https://saweria.co/illvart
 
